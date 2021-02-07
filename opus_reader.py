@@ -131,14 +131,11 @@ def query_opus(src, trg, data_sources):
 
 
 if __name__ == '__main__':
-    sources = ["kjh","cjs","en","ru",]
-    targets = ["kjh",
-                "cjs","en", "ru",]
+    sources = []    # List of source language codes
+    targets = []    # List of target language codes
+    valid_sources = ['JW300', 'GoURMET']
 
     for i, src in enumerate(sources):
         for j in range(i+1, len(targets)):
-            if src == 'tr' and j < targets.index('en'):
-                continue
-            if targets[j] != 'ru' and src != 'en':
-                query_opus(src, targets[j], ['JW300', 'GoURMET'])
-                #ky tr next
+            query_opus(src, targets[j], valid_sources)
+
